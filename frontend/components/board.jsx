@@ -30,17 +30,14 @@ class Board extends React.Component {
 
 
   render() {
+    const coords = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
+    const cells = coords.map((coord) =>
+      <Cell current={this.state.current} coord={coord} key={coord.toString()} />
+    );
+
     return(
       <div className="board">
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
-        <Cell current={this.state.current}/>
+        {cells}
 
       </div>
     );

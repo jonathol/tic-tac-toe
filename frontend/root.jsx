@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Board from './game/board';
+import Board from './components/board';
 
 
 
