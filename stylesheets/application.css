@@ -11,7 +11,7 @@ body {
 }
 
 .board {
-  
+
   border: 1px solid black;
   display: flex;
   width: 602px;
@@ -21,9 +21,10 @@ body {
 }
 
 .cell {
-
   border: 1px solid black;
-
   width: 200px;
   height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 100px;
 }
