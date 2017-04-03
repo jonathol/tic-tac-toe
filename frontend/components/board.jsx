@@ -32,7 +32,7 @@ class Board extends React.Component {
   render() {
     const coords = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
     const cells = coords.map((coord) =>
-      <Cell current={this.state.current} coord={coord} key={coord.toString()} />
+      <Cell current={this.state.current} coord={coord} key={coord.toString()} switch={this.switchCurrent.bind(this)}/>
     );
 
     return(

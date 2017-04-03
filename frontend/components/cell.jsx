@@ -8,10 +8,13 @@ class Cell extends React.Component {
     }
   }
 
-  _handleClick() {    
-    this.setState ({
-      piece : this.props.current
-    });
+  _handleClick() {
+    if (this.state.piece !== "X" && this.state.piece !== "O") {
+      this.setState ({
+        piece : this.props.current
+      });
+      this.props.switch();
+    }
   }
 
   render() {
