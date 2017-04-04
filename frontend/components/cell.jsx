@@ -10,10 +10,11 @@ class Cell extends React.Component {
 
   _handleClick() {
     if (this.state.piece !== "X" && this.state.piece !== "O") {
-      this.props.addToBoard(this.props.coord, this.props.current);    
+      this.props.addToBoard(this.props.coord, this.props.current);
       this.setState ({
         piece : this.props.current
       });
+      this.props.checkWin(this.props.coord, this.props.board, this.props.current);
       this.props.switch();
     }
   }

@@ -34,6 +34,29 @@ class Board extends React.Component {
     this.setState({board});
   }
 
+  checkWin(coord, board, current) {
+
+    //check row
+    for (var i = 0; i < 3; i++) {
+      if (board[coord[0]][i] !== current ) {      
+        break;
+      }
+      if (i === 2) {
+        console.log(current + " wins!");
+      }
+    }
+
+    //check col
+    for (var i = 0; i < 3; i++) {
+      if (board[i][coord[1]] !== current ) {
+        break;
+      }
+      if (i === 2) {
+        console.log(current + " wins!");
+      }
+    }
+  }
+
 
 
   render() {
@@ -45,10 +68,11 @@ class Board extends React.Component {
         switch={this.switchCurrent.bind(this)}
         board={this.state.board}
         addToBoard={this.addToBoard.bind(this)}
+        checkWin={this.checkWin.bind(this)}
       />
     );
 
-    console.log(this.state.board);
+
 
     return(
       <div className="board">
