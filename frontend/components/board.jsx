@@ -6,7 +6,8 @@ class Board extends React.Component {
     super(props);
     this.state = {
       current: "",
-      board : [["","",""],["","",""],["","",""]]
+      board : [["","",""],["","",""],["","",""]],
+      moveCount : 0
     }
   }
 
@@ -36,9 +37,14 @@ class Board extends React.Component {
 
   checkWin(coord, board, current) {
 
+    let moveCount = this.state.moveCount++;
+    this.setState({
+      moveCount : moveCount
+    });
+
     //check row
     for (var i = 0; i < 3; i++) {
-      if (board[coord[0]][i] !== current ) {      
+      if (board[coord[0]][i] !== current ) {
         break;
       }
       if (i === 2) {
@@ -55,6 +61,34 @@ class Board extends React.Component {
         console.log(current + " wins!");
       }
     }
+
+    //check diag
+    if(coord[0] === coord[1]){
+        for(var i = 0; i < 3; i++){
+            if(board[i][i] != current)
+                break;
+            if(i == 2){
+                console.log(current + " wins!");
+            }
+        }
+    }
+
+    //check anti diag
+    if(coord[0] + coord[1] === 2){
+        for(var i = 0;i < 3;i++){
+            if(board[i][2-i] != current)
+                break;
+            if(i == 2){
+                console.log(current + " wins!");
+            }
+        }
+    }
+
+    //check draw
+    if(this.state.moveCount === (3^2 - 1)){
+        console.log("Tie!");
+    }
+
   }
 
 
@@ -69,6 +103,7 @@ class Board extends React.Component {
         board={this.state.board}
         addToBoard={this.addToBoard.bind(this)}
         checkWin={this.checkWin.bind(this)}
+
       />
     );
 
@@ -77,7 +112,6 @@ class Board extends React.Component {
     return(
       <div className="board">
         {cells}
-
       </div>
     );
   }
