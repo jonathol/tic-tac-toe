@@ -14,7 +14,11 @@ class Cell extends React.Component {
       this.setState ({
         piece : this.props.current
       });
-      this.props.checkWin(this.props.coord, this.props.board, this.props.current);
+      this.props.incrementMoveCount();
+      if (this.props.moveCount === 8) {
+        console.log("Tie!");
+      }
+      console.log(this.props.checkWin(this.props.coord, this.props.board, this.props.current));
       this.props.switch();
     }
   }
