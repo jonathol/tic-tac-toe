@@ -17,7 +17,7 @@ class Cell extends React.Component {
       });
 
       this.props.incrementMoveCount();
-      
+
       let tempResult = this.props.checkWin(this.props.coord, this.props.board, this.props.current);
       if (tempResult) {
         setTimeout(function() {alert(this.state.piece + " wins!");}.bind(this),1);
