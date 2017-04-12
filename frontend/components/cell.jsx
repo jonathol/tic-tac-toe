@@ -11,14 +11,22 @@ class Cell extends React.Component {
   _handleClick() {
     if (this.state.piece !== "X" && this.state.piece !== "O") {
       this.props.addToBoard(this.props.coord, this.props.current);
+
       this.setState ({
         piece : this.props.current
       });
+
       this.props.incrementMoveCount();
-      if (this.props.moveCount === 8) {
-        console.log("Tie!");
+      
+      let tempResult = this.props.checkWin(this.props.coord, this.props.board, this.props.current);
+      if (tempResult) {
+        setTimeout(function() {alert(this.state.piece + " wins!");}.bind(this),1);
+      } else {
+        if (this.props.moveCount === 8) {
+          setTimeout(function() {alert("Tie game!");},1);
+        }
       }
-      console.log(this.props.checkWin(this.props.coord, this.props.board, this.props.current));
+
       this.props.switch();
     }
   }
