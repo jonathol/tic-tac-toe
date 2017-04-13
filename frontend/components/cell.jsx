@@ -21,6 +21,10 @@ class Cell extends React.Component {
       let tempResult = this.props.checkWin(this.props.coord, this.props.board, this.props.current);
       if (tempResult) {
         setTimeout(function() {alert(this.state.piece + " wins!");}.bind(this),1);
+        var cells = document.getElementsByClassName('cell');
+        for (var i = 0; i < cells.length; i++) {
+          cells[i].style.pointerEvents = 'none';
+        }
       } else {
         if (this.props.moveCount === 8) {
           setTimeout(function() {alert("Tie game!");},1);
