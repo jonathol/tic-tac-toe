@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto; }
+
+h1 {
+  font-size: 50px;
+  width: 100%;
+  text-align: center; }
+
+.board {
+  border: 1px solid black;
+  display: flex;
+  width: 422px;
+  height: 422px;
+  align-self: center;
+  flex-wrap: wrap; }
+
+.cell {
+  border: 1px solid black;
+  width: 140px;
+  height: 140px;
+  text-align: center;
+  line-height: 140px;
+  font-size: 100px; }
+
+/*# sourceMappingURL=main.css.map */
