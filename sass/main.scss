@@ -1,3 +1,5 @@
+@import "helper/variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -23,8 +25,8 @@ h1  {
 
   border: 1px solid black;
   display: flex;
-  width: 422px;
-  height: 422px;
+  width: $board-width;
+  height: $board-width;
   align-self: center;
   flex-wrap: wrap;
 }

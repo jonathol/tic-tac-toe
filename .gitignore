@@ -3,3 +3,6 @@ bundle.js
 bundle.js.map
 
 .git/
+
+.sass-cache/
+*.css.map
