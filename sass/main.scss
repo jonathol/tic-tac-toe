@@ -23,7 +23,7 @@ h1  {
 
 .board {
 
-  border: 1px solid black;
+  border: $border;
   display: flex;
   width: $board-width;
   height: $board-width;
@@ -32,7 +32,7 @@ h1  {
 }
 
 .cell {
-  border: 1px solid black;
+  border: $border;
   width: 140px;
   height: 140px;
   text-align: center;
