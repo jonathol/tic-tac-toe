@@ -7,7 +7,8 @@ class Board extends React.Component {
     this.state = {
       current: "",
       board : [["","",""],["","",""],["","",""]],
-      moveCount : 0
+      moveCount : 0,
+      resetCell: false
     }
   }
 
@@ -90,6 +91,26 @@ class Board extends React.Component {
     return ans;
   }
 
+  resetBoard() {
+    this.setState({
+      current: "X",
+      board : [["","",""],["","",""],["","",""]],
+      moveCount : 0,
+      resetCell : true
+    });
+    var cells = document.getElementsByClassName('cell');
+    for (var i = 0; i < cells.length; i++) {
+      cells[i].style.pointerEvents = 'auto';
+    }
+  }
+
+  changeReset() {
+    this.setState({
+      resetCell : false
+    });
+  }
+
+
 
 
   render() {
@@ -104,6 +125,8 @@ class Board extends React.Component {
         checkWin={this.checkWin.bind(this)}
         moveCount={this.state.moveCount}
         incrementMoveCount={this.incrementMoveCount.bind(this)}
+        resetCell={this.state.resetCell}
+        changeReset={this.changeReset.bind(this)}
       />
     );
 
@@ -112,6 +135,7 @@ class Board extends React.Component {
     return(
       <div className="board">
         {cells}
+        <button onClick={this.resetBoard.bind(this)}>Reset!</button>
       </div>
     );
   }

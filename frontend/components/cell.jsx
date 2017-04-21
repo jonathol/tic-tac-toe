@@ -8,6 +8,15 @@ class Cell extends React.Component {
     }
   }
 
+  componentDidUpdate(){
+    if (this.props.resetCell === true) {
+      this.setState({
+        piece : ""
+      });
+      this.props.changeReset();
+    }
+  }
+
   _handleClick() {
     if (this.state.piece !== "X" && this.state.piece !== "O") {
       this.props.addToBoard(this.props.coord, this.props.current);
