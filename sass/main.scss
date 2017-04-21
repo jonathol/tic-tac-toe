@@ -33,9 +33,9 @@ h1  {
 
 .cell {
   border: $border;
-  width: 140px;
-  height: 140px;
+  width: ($board-width - 2)/3;
+  height: ($board-width - 2)/3;
   text-align: center;
-  line-height: 140px;
-  font-size: 100px;
+  line-height: ($board-width - 2)/3;
+  font-size: ($board-width - 2)/3;
 }
